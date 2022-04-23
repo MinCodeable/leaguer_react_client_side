@@ -3,6 +3,7 @@ import Layout from "./layout/layout";
 import Aspects from "./pages/Aspects";
 import ChampionDetail from "./pages/ChampionDetail";
 import Champions from "./pages/Champions";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route index element={<Champions/>}/>
+          <Route index element={<Home/>}/>
           <Route path="champions" > 
             <Route index element={<Champions/>}/>
             <Route path=":id" element={<ChampionDetail/>}/>
