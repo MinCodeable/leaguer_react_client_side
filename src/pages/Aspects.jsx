@@ -1,18 +1,31 @@
-import aspectImage from'../images/xataka.jpg';
 import AspectCard from '../components/cards/aspectCard/AspectCard';
 import { GalleryStandard } from '../components/UI/GaleryStyles';
 import { useGetAspectsQuery } from '../services/lolApi';
+import SearchAspect from '../components/search/searchaspect/SearchAspect'
+import {useState} from 'react'
+import styled from '@emotion/styled';
+import Pagination from '../components/pagination/Pagination';
+
+
+
+const WrapperCard = styled.div`
+  /* border: 4px solid greenyellow; */
+  padding: 2em 1.1em;
+`;
 
 export default function Aspects() {
-  const {data, error, isLoading} = useGetAspectsQuery();
+  const [searchChampion, setSearchChampion] = useState("");
+  const {data: aspects, error, isLoading} = useGetAspectsQuery({nameChampion: searchChampion});
 
   return (
-    <GalleryStandard>
-      <div>Aspects</div>
-      {
-        data?.data.map( (aspect) => <AspectCard key={aspect.id} image={aspect.imgsrc} name={aspect.name} />)
-      }
-    </GalleryStandard>
+    <WrapperCard>
+      {/* <SearchAspect asignarSearchChampion={setSearchChampion} /> */}
+      <GalleryStandard>
+        {
+          aspects?.data.map( (aspect,idx) => <AspectCard key={idx} champion_id={aspect.champion_id} image={aspect.imgsrc} name={aspect.name} />)
+        }
+      </GalleryStandard>
+      <Pagination />
+    </WrapperCard>
   )
 }
-

@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BiSearchAlt2 } from "react-icons/bi";
+import { BsMoon } from "react-icons/bs";
+import { IconIoIosCloseCircleOutline } from "../UI/IconCloseStyle";
 
 const WrapperNav = styled.div``;
 
@@ -24,7 +26,7 @@ const NavbarItems = styled.div`
   right: -100%;
   height: 100%;
   width: 50%;
-  padding: 1rem;
+  padding: 1rem 0;
   background-color: var(--color-secondary);
   color: white;
   transition: right 1.5s ease;
@@ -36,13 +38,21 @@ const NavbarItems = styled.div`
 `;
 
 const NavbarLink = styled.div`
-  border: 1px solid red;
-  /* padding: ; */
+  border-bottom: 1px solid var(--color-primary);
+  padding: 1em 0;
+  padding-left: 1em;
+  &:hover{
+    background-color: var(--color-primary);
+    color: black;
+  }
 `;
 
 const IconsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 0 1rem;
 `;
 
 const Burger = styled.div`
@@ -66,11 +76,12 @@ const IconBiSearchAlt2 = styled(BiSearchAlt2)`
   }
 `;
 
+
+
 export default function Navbar() {
   const [active, setActive] = useState(false);
 
   function handleTheme(){
-    console.log("theme")
     const bodyClass = document.body.classList;
     if(bodyClass.contains("light")){
       bodyClass.replace("light", "dark")
@@ -83,13 +94,13 @@ export default function Navbar() {
     <WrapperNav>
       <Burger>
         <IconAiOutlineMenu onClick={() => setActive(true)}/>
-        <IconBiSearchAlt2/>
+        <IconBiSearchAlt2 />
       </Burger>
       <ShadowDiv className={ active ? "active" : ""}>
         <NavbarItems className={ active ? "active" : ""}>
           <IconsWrapper>
-            <span onClick={handleTheme}> th </span>
-            <span onClick={() => setActive(false)}> x </span>
+            <span onClick={handleTheme}> <BsMoon/> </span>
+            <span onClick={() => setActive(false)}> <IconIoIosCloseCircleOutline/>  </span>
           </IconsWrapper>
           <br />
           <NavbarLink>Campeones</NavbarLink>

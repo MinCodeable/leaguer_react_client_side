@@ -6,7 +6,7 @@ const AspectWrapper = styled.div`
     width: max(80%, 40vh);
     max-width: 360px;
     position: relative;
-    box-shadow: 0px 0px 30px 2px var(--color-shadow);
+    box-shadow: 0px 0px 15px 1px var(--color-shadow);
     cursor: pointer;
     z-index: 1;
 
@@ -31,10 +31,10 @@ const AspectWrapper = styled.div`
     }
 `;
 
-export default function AspectCard({image, name}) {
+export default function AspectCard({champion_id,image, name}) {
   return (
     <AspectWrapper>
-        <ImageWrapperStandard>
+        <ImageWrapperStandard data-id={champion_id}>
             <ImageStandard src={image} alt="aspect-image" />
             <div className='aspect-name--champion'> {name} </div>
         </ImageWrapperStandard>

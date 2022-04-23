@@ -6,14 +6,17 @@ export const lolApi = createApi({
     baseQuery:  fetchBaseQuery({ baseUrl: 'https://lol-server-side.herokuapp.com//api/v1/'}),
     endpoints:  (build) => ({
                     getChampions: build.query({
-                        // query:  (data) => `champions?pag=${data.page}&txt=${data.textSearch}&type=${data.type_champ}&dif=${data.difficulty}&cond=${data.order}&limit=${5}`
-                        query:  (data) => `champions`
+                        query:  ({page=1, textSearch="", type_champ="", difficulty="", order="asc", limit=5}) => `champions?pag=${page}&txt=${textSearch}&type=${type_champ}&dif=${difficulty}&cond=${order}&limit=${limit}`
+                        // query:  (data) => `champions?pag=${data.page}`
                     }),
                     getAspects: build.query({
-                        // query: (data) => `aspects?pag=${data.page}&name=${data.nameChampion}&limit=${10}`
-                        query: (data) => `aspects`
+                        query: ({page=1, nameChampion="", limit=10}) => `aspects?pag=${page}&name=${nameChampion}&limit=${limit}`
+                        // query: (data) => `aspects`
+                    }),
+                    getAspectsNames: build.query({
+                        query: () => `champions/namechamp`
                     })
                 })
 })
 
-export const {useGetChampionsQuery, useGetAspectsQuery} = lolApi;
+export const {useGetChampionsQuery, useGetAspectsQuery, useGetAspectsNamesQuery} = lolApi;

@@ -1,24 +1,32 @@
 import ChampionCard from '../components/cards/championcard/ChampionCard'
-import Search from '../components/search/Search';
 import { GalleryStandard } from '../components/UI/GaleryStyles';
-import championImage from '../images/xataka.jpg'
 import { useGetChampionsQuery } from '../services/lolApi';
+import SearchChampion from '../components/search/searchchampion/SearchChampion'
+import { useState } from 'react';
+import styled from '@emotion/styled';
+import Pagination from '../components/pagination/Pagination';
+
+const Wrapper = styled.div`
+  padding: 2em 1.1em;
+`;
 
 export default function Champions() {
-  const {data, error, isLoading} = useGetChampionsQuery();
+  const [sortChampion, setSortChampion] = useState("asc");
+  const [searchTypeText, setSearchTypeText] = useState("");
+  const [typeChamp, setTypeChamp] = useState("");
+  const [difficultChamp, setDifficultChamp] = useState("");
 
-
-  const champions = [
-                      {id: 1, name:"aatrox", image: championImage},
-                      {id: 2, name:"ahri", image: championImage},
-                      {id: 3, name:"avatar", image: championImage}
-                    ]
+  const {data: champions, error, isLoading} = useGetChampionsQuery({page: 1, order: sortChampion, textSearch: searchTypeText, type_champ: typeChamp, difficulty: difficultChamp });
+  
   return (
-    <GalleryStandard>
-      <Search />
-      {
-        data?.data.map( (champion) => <ChampionCard key={champion.id} image={champion.main_imgsrc} name={champion.name} />)
-      }
-    </GalleryStandard>
+    <Wrapper>
+      {/* <SearchChampion setSortChampion={setSortChampion} setSearchTypeText={setSearchTypeText} setTypeChamp={setTypeChamp} setDifficultChamp={setDifficultChamp}/> */}
+      <GalleryStandard>
+        {
+          champions?.data.map( (champion) => <ChampionCard key={champion.id} image={champion.main_imgsrc} name={champion.name} />)
+        }
+      </GalleryStandard>
+      <Pagination></Pagination>
+    </Wrapper>
   )
 }

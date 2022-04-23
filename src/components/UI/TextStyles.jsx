@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
     
 export const TextTitle = styled.div`
-    font-size: 1.05rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--color-primary);
     /* padding: .3rem 0; */
     margin-top: .7em;
