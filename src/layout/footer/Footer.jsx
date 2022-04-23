@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { useRef } from "react";
 import { AiFillGithub, AiFillLinkedin, AiOutlineArrowRight, AiFillMail } from "react-icons/ai";
 import { IoLocation } from "react-icons/io5";
-import FooterItem from "../../components/footerItem/FooterItem";
+import FooterAccordion from "../../components/footeracordion/FooterAccordion";
 import { TextStandard, TextTitle } from "../../components/UI/TextStyles";
 // import { DiAndroid } from "react-icons/di";
 // import {  } from "react-icons/ai";
@@ -39,34 +39,18 @@ const Copiryght = styled.div`
 `;
 
 export default function Footer() {
-  
-  function handleActive(event){
-    let classSibling;
-    if(event.target.classList.contains("footer_titles")){
-      classSibling = event.target.nextElementSibling.classList;
-    }else{
-      const parent = event.target.parentElement;
-      classSibling = parent.nextElementSibling.classList;
-    }
-      
-    if(classSibling.contains("active")){
-      classSibling.remove("active")
-    }else{
-      classSibling.add("active")
-    }
-  }
 
   return (
     <Wrapper>
       <WrapperRedes>
-        <FooterItem titleName="Redes Sociales">
+        <FooterAccordion titleName="Redes Sociales">
             <div>
               <AiFillGithub className="icon-redes" />
               <AiFillLinkedin className="icon-redes" />
             </div>
-        </FooterItem>
+        </FooterAccordion>
 
-        <FooterItem titleName="Enlaces Rapidos">
+        <FooterAccordion titleName="Enlaces Rapidos">
             <div>
               <AiOutlineArrowRight className="color-icon" />
               <TextStandard > Campeones </TextStandard>
@@ -75,10 +59,10 @@ export default function Footer() {
               <AiOutlineArrowRight className="color-icon"/>
               <TextStandard > Aspectos </TextStandard>
             </div>
-        </FooterItem>
+        </FooterAccordion>
 
 
-        <FooterItem titleName="Informacion del Contacto">
+        <FooterAccordion titleName="Informacion del Contacto">
             <div>
               <AiFillMail className="color-icon" />
               <TextStandard> mindyleonh@gmail.com </TextStandard>
@@ -87,7 +71,7 @@ export default function Footer() {
               <IoLocation  className="color-icon"/>
               <TextStandard> Lima-Peru </TextStandard>
             </div>
-        </FooterItem>
+        </FooterAccordion>
       </WrapperRedes>
 
       <Copiryght>

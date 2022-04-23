@@ -6,7 +6,8 @@ const WrapperPagination = styled.div`
     /* border: 3px solid blue; */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1em;
     margin-top: 1.5em;
     color: var(--text--primary-color);
     padding: .8rem 0;

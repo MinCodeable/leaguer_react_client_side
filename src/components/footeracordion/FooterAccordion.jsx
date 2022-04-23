@@ -33,7 +33,7 @@ const WrapperText = styled.div`
   
 `;
 
-export default function FooterItem({titleName, children}) {
+export default function FooterAccordion({titleName, children}) {
   const refText = useRef();
   const [plusActive, setPlusActive] = useState(true);
   

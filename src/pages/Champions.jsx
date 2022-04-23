@@ -5,6 +5,7 @@ import SearchChampion from '../components/search/searchchampion/SearchChampion'
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';
+import {Default} from 'react-awesome-spinners';
 
 const Wrapper = styled.div`
   padding: 2em 1.1em;
@@ -22,6 +23,9 @@ export default function Champions() {
     <Wrapper>
       {/* <SearchChampion setSortChampion={setSortChampion} setSearchTypeText={setSearchTypeText} setTypeChamp={setTypeChamp} setDifficultChamp={setDifficultChamp}/> */}
       <GalleryStandard>
+        {
+          isLoading && <Default color="var(--color-primary)"/>
+        }
         {
           champions?.data.map( (champion) => <ChampionCard key={champion.id} image={champion.main_imgsrc} name={champion.name} />)
         }

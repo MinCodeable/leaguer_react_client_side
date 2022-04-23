@@ -5,6 +5,8 @@ import SearchAspect from '../components/search/searchaspect/SearchAspect'
 import {useState} from 'react'
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';
+import {Default} from 'react-awesome-spinners';
+
 
 
 
@@ -21,6 +23,9 @@ export default function Aspects() {
     <WrapperCard>
       {/* <SearchAspect asignarSearchChampion={setSearchChampion} /> */}
       <GalleryStandard>
+        {
+          isLoading && <Default color="var(--color-primary)"/>
+        }
         {
           aspects?.data.map( (aspect,idx) => <AspectCard key={idx} champion_id={aspect.champion_id} image={aspect.imgsrc} name={aspect.name} />)
         }
