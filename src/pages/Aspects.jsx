@@ -10,7 +10,6 @@ import {Default} from 'react-awesome-spinners';
 
 
 const WrapperCard = styled.div`
-  /* border: 4px solid greenyellow; */
   padding: 2em 1.1em;
 `;
 
@@ -26,7 +25,7 @@ export default function Aspects() {
           isLoading && <Default color="var(--color-primary)"/>
         }
         {
-          aspects?.data.map( (aspect,idx) => <AspectCard key={idx} champion_id={aspect.champion_id} image={aspect.imgsrc} name={aspect.name} />)
+          aspects?.data?.map( (aspect,idx) => <AspectCard key={idx} champion_id={aspect.champion_id} image={aspect.imgsrc} name={aspect.name} />)
         }
       </GalleryStandard>
       <Pagination />

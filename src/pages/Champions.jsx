@@ -26,7 +26,7 @@ export default function Champions() {
           isLoading && <Default color="var(--color-primary)"/>
         }
         {
-          champions?.data.map( (champion) => <ChampionCard key={champion.id} image={champion.main_imgsrc} name={champion.name} />)
+          champions?.data?.map( (champion) => <ChampionCard key={champion.id} image={champion.main_imgsrc} name={champion.name} />)
         }
       </GalleryStandard>
       <Pagination></Pagination>
