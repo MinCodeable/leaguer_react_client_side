@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { ImageStandard, ImageWrapperStandard } from '../../UI/ImageStyles';
 
 const AspectWrapper = styled.div`
-    /* border: 2px solid blue; */
     width: max(80%, 40vh);
     max-width: 360px;
     position: relative;
