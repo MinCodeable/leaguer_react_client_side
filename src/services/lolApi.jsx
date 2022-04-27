@@ -1,4 +1,3 @@
-// import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const lolApi = createApi({
@@ -7,11 +6,9 @@ export const lolApi = createApi({
     endpoints:  (build) => ({
                     getChampions: build.query({
                         query:  ({page=1, textSearch="", type_champ="", difficulty="", order="asc", limit=5}) => `champions?pag=${page}&txt=${textSearch}&type=${type_champ}&dif=${difficulty}&cond=${order}&limit=${limit}`
-                        // query:  (data) => `champions?pag=${data.page}`
                     }),
                     getAspects: build.query({
                         query: ({page=1, nameChampion="", limit=10}) => `aspects?pag=${page}&name=${nameChampion}&limit=${limit}`
-                        // query: (data) => `aspects`
                     }),
                     getAspectsNames: build.query({
                         query: () => `champions/namechamp`

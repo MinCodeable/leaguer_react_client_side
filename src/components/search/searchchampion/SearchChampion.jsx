@@ -1,5 +1,5 @@
 import React from 'react'
-import { CloseName, ContentFilter, ContentFilterClose, ContentInput, ContentSelect, ContentWrapper, Label, LabelContent, WrapperSearch } from '../../UI/FilterStyles';
+import { CloseName, ContentFilter, ContentFilterClose, ContentInput, ContentSelect, ContentWrapper, LabelContent, WrapperSearch } from '../../UI/FilterStyles';
 import { IconIoIosCloseCircleOutline } from '../../UI/IconCloseStyle';
 
 export default function SearchChampion({setSortChampion, setSearchTypeText, setTypeChamp, setDifficultChamp}) {

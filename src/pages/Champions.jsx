@@ -1,7 +1,6 @@
 import ChampionCard from '../components/cards/championcard/ChampionCard'
 import { GalleryStandard } from '../components/UI/GaleryStyles';
 import { useGetChampionsQuery } from '../services/lolApi';
-import SearchChampion from '../components/search/searchchampion/SearchChampion'
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';

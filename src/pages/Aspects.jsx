@@ -1,7 +1,6 @@
 import AspectCard from '../components/cards/aspectCard/AspectCard';
 import { GalleryStandard } from '../components/UI/GaleryStyles';
 import { useGetAspectsQuery } from '../services/lolApi';
-import SearchAspect from '../components/search/searchaspect/SearchAspect'
 import {useState} from 'react'
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';

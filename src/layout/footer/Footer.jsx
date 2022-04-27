@@ -1,12 +1,8 @@
 import styled from "@emotion/styled"
-import { useRef } from "react";
 import { AiFillGithub, AiFillLinkedin, AiOutlineArrowRight, AiFillMail } from "react-icons/ai";
 import { IoLocation } from "react-icons/io5";
 import FooterAccordion from "../../components/footeracordion/FooterAccordion";
-import { TextStandard, TextTitle } from "../../components/UI/TextStyles";
-// import { DiAndroid } from "react-icons/di";
-// import {  } from "react-icons/ai";
-
+import { TextStandard } from "../../components/UI/TextStyles";
 
 const Wrapper = styled.footer`
   border-top: 2px solid var(--color-primary);
@@ -25,7 +21,6 @@ const WrapperRedes = styled.div`
 `;
 
 const Copiryght = styled.div`
-  /* border: 2px solid red; */
   width: 100%;
   font-size: .8rem;
   text-align: center;
