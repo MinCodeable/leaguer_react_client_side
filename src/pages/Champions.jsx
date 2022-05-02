@@ -7,7 +7,6 @@ import Pagination from '../components/pagination/Pagination';
 // import {Default} from 'react-awesome-spinners';
 // import SearchChampion from '../components/search/searchchampion/SearchChampion';
 
-
 const Wrapper = styled.div`
   padding: 2em 1.1em;
 `;
