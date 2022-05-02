@@ -18,21 +18,21 @@ export default function SearchChampion({setSortChampion, setSearchTypeText, setT
             </ContentFilterClose>
 
             <ContentFilter>
-                <LabelContent htmlFor=""> Ordenar: </LabelContent>
-                <ContentSelect name="" id="" onChange={handleSort}>
+                <LabelContent htmlFor="champions-sort"> Ordenar: </LabelContent>
+                <ContentSelect name="" id="champions-sort" onChange={handleSort}>
                     <option value="asc"> Ordenar de AZ</option>
                     <option value="desc"> Ordenar de ZA</option>
                 </ContentSelect>
             </ContentFilter>
 
             <ContentFilter >
-                <LabelContent htmlFor=""> Buscar: </LabelContent>
-                <ContentInput type="text" onChange={handleTypeText} />
+                <LabelContent htmlFor="champions-search"> Buscar: </LabelContent>
+                <ContentInput type="text" onChange={handleTypeText} id="champions-search"/>
             </ContentFilter>
             
             <ContentFilter>
-                <LabelContent htmlFor=""> Tipo de campeones: </LabelContent>
-                <ContentSelect name="" id="" onChange={handleType}>
+                <LabelContent htmlFor="champions-type"> Tipo de campeones: </LabelContent>
+                <ContentSelect name="" id="champions-type" onChange={handleType}>
                     <option value=""> Todos </option>
                     <option value="asesino"> Asesino </option>
                     <option value="luchador"> Luchador </option>
@@ -43,8 +43,8 @@ export default function SearchChampion({setSortChampion, setSearchTypeText, setT
                 </ContentSelect>
             </ContentFilter>
             <ContentFilter>
-                <LabelContent htmlFor=""> Dificultades: </LabelContent>
-                <ContentSelect name="" id="" onChange={handleDifficult}>
+                <LabelContent htmlFor="champions-difficult"> Dificultades: </LabelContent>
+                <ContentSelect name="" id="champions-difficult" onChange={handleDifficult}>
                     <option value=""> Todos </option>
                     <option value="baja">Baja</option>
                     <option value="moderada">Moderada</option>

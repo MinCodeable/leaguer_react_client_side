@@ -21,8 +21,8 @@ export default function SearchAspect({asignarSearchChampion}) {
                 <IconIoIosCloseCircleOutline/>
             </ContentFilterClose>
             <ContentFilter>
-                <LabelContent htmlFor=""> Filtrar por aspecto: </LabelContent>
-                <ContentSelect name="" id="" onChange={handleChange}>
+                <LabelContent> Filtrar por aspecto: </LabelContent>
+                <ContentSelect name="" onChange={handleChange}>
                     <option value=""> Todos </option>
                     {
                         allAspects?.map((name, idx) => <option key={idx} value={`${name}`}> {name} </option>)

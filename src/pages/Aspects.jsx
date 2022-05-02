@@ -4,9 +4,8 @@ import { useGetAspectsQuery } from '../services/lolApi';
 import {useState} from 'react'
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';
-import {Default} from 'react-awesome-spinners';
-
-
+// import {Default} from 'react-awesome-spinners';
+// import SearchAspect from '../components/search/searchaspect/SearchAspect'
 
 
 const WrapperCard = styled.div`
@@ -22,7 +21,7 @@ export default function Aspects() {
       {/* <SearchAspect asignarSearchChampion={setSearchChampion} /> */}
       <GalleryStandard>
         {
-          isLoading && <Default color="var(--color-primary)"/>
+          // isLoading && <Default color="var(--color-primary)"/>
         }
         {
           aspects?.data?.map( (aspect,idx) => <AspectCard key={idx} champion_id={aspect.champion_id} image={aspect.imgsrc} name={aspect.name} />)
