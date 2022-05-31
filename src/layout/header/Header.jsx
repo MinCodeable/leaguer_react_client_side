@@ -5,8 +5,8 @@ import logoLol from "../../images/leagueoflegends.png"
 
 
 const WrapperHeader = styled.div`
-
-  width: 100vw;
+  /* border: 4px solid red; */
+  // width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;

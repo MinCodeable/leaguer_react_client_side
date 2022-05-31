@@ -4,11 +4,12 @@ import { useGetChampionsQuery } from '../services/lolApi';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';
-// import {Default} from 'react-awesome-spinners';
-// import SearchChampion from '../components/search/searchchampion/SearchChampion';
+import {Default} from 'react-awesome-spinners';
+import { LIMIT_CHAMPIONS_PER_PAGE } from '../variableGlobales';
+import Paginat from '../components/pagination/pagint';
 
 const Wrapper = styled.div`
-  padding: 2em 1.1em;
+  padding: 1.1rem;
 `;
 
 export default function Champions() {
@@ -16,21 +17,24 @@ export default function Champions() {
   const [searchTypeText, setSearchTypeText] = useState("");
   const [typeChamp, setTypeChamp] = useState("");
   const [difficultChamp, setDifficultChamp] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const {data: champions, error, isLoading} = useGetChampionsQuery({page: 1, order: sortChampion, textSearch: searchTypeText, type_champ: typeChamp, difficulty: difficultChamp });
-  
+
+  const {data: champions, error, isLoading} = useGetChampionsQuery({page: currentPage, order: sortChampion, textSearch: searchTypeText, type_champ: typeChamp, difficulty: difficultChamp });
+
   return (
     <Wrapper>
       {/* <SearchChampion setSortChampion={setSortChampion} setSearchTypeText={setSearchTypeText} setTypeChamp={setTypeChamp} setDifficultChamp={setDifficultChamp}/> */}
       <GalleryStandard>
-        {/* {
-          isLoading && <Default color="var(--color-primary)"/>
-        } */}
         {
-          champions?.data?.map( (champion) => <ChampionCard key={champion.id} image={champion.main_imgsrc} name={champion.name} />)
+          isLoading && <Default color="var(--color-primary)"/>
+        }
+        {
+          champions?.data?.map( (champion) => <ChampionCard key={champion.id} id={champion.id} image={champion.main_imgsrc} name={champion.name} />)
         }
       </GalleryStandard>
-      <Pagination></Pagination>
+      {/* <Pagination limit_per_page={LIMIT_CHAMPIONS_PER_PAGE} quantityElements={champions?.quantity} setCurrentPage={setCurrentPage} currentPage={currentPage}/> */}
+      <Paginat currentPage = {currentPage} setCurrentPage={setCurrentPage}/>
     </Wrapper>
   )
 }

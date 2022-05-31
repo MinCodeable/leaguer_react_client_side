@@ -2,8 +2,11 @@ import styled from '@emotion/styled';
 import { ImageStandard, ImageWrapperStandard } from '../../UI/ImageStyles';
 
 const AspectWrapper = styled.div`
-    width: max(80%, 40vh);
-    max-width: 360px;
+    // border: 2px solid green;
+    /* width: max(80%, 40vh); */
+    /* width: clamp(15rem, 10rem + 15vw, 20rem); */
+    width: clamp(7rem, 1rem + 35vw, 25rem);
+    /* max-width: 125px; */
     position: relative;
     box-shadow: 0px 0px 15px 1px var(--color-shadow);
     cursor: pointer;

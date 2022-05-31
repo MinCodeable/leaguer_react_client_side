@@ -8,12 +8,13 @@ import {NavLink} from 'react-router-dom'
 import {devices} from '../../layout/responsive/DevicesBreakPoints'
 
 const WrapperNav = styled.div`
+  /* border: 2px solid blue; */
   width: 100%;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 768px){
     flex-direction: row-reverse;
-    padding: .9rem;
+    padding: 0rem 1rem;
   }
 `;
 
@@ -45,13 +46,13 @@ const NavbarItems = styled.div`
   padding: 1rem 0;
   background-color: var(--color-secondary);
   color: var(--text--primary-color);
-  transition: right 1.5s ease;
+  transition: right .7s ease;
   display: flex;
   flex-direction: column;
   
   &.active{
     right: 0%;
-    transition: right 1.5s ease;
+    transition: right .7s ease;
   }
 
   @media  ${devices.tablet} {
@@ -80,6 +81,8 @@ const NavLinksWeapper = styled.div`
 
   @media  ${devices.tablet} {
     flex-direction: row;
+    gap: 25px;
+    /* border: 2px solid green; */
   }
 `;
 
@@ -89,14 +92,30 @@ const NavbarLinks = styled(NavLink)`
   padding-left: 1em;
   color: var(--text--primary-color);
   text-decoration: none;
+  /* color: red; */
 
   &:hover{
     background-color: var(--color-primary);
-    color: black;
+    color: var(--color-secondary);
+    /* color: red; */
+
   }
   &.active{
-    color: var(--color-primary);
+    /* color: var(--color-secondary); */
+    color: var(--text--primary-color);
+    background-color: var(--color-primary);
+    font-weight: 500;
   }
+
+  @media  ${devices.tablet} {
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* border: 2px solid red; */
+    padding: .5em 1em;
+    /* row-gap: 15px; */
+    /* gap: 20px; */
+  }
+
 `;
 
 const NavRowIcons = styled.div`

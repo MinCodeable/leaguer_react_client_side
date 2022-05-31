@@ -10,23 +10,26 @@ const Wrapper = styled.footer`
   height: auto;
   display: flex;
   flex-direction: column;
-  
+  margin-top: auto;
+  width: 100%;
   .color-icon{
     color: var(--color-primary);
   }
+
 `;
 
 const WrapperRedes = styled.div`
-  padding: 0 1.2em;
+  padding: .5rem 1.2em;
 `;
 
 const Copiryght = styled.div`
-  width: 100%;
+
   font-size: .8rem;
   text-align: center;
   background-color: var(--color-tertiary);
   padding: 1.2em;
   margin-top: 1.2em;
+
   span{
     color: var(--color-primary);
     font-weight: 500;
@@ -55,7 +58,6 @@ export default function Footer() {
               <TextStandard > Aspectos </TextStandard>
             </div>
         </FooterAccordion>
-
 
         <FooterAccordion titleName="Informacion del Contacto">
             <div>

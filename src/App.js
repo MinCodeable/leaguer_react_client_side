@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
+import ModalPopUpAspect from "./components/modalPopUp/ModalPopUpAspect";
 import Layout from "./layout/layout";
 import Aspects from "./pages/Aspects";
 import ChampionDetail from "./pages/ChampionDetail";
@@ -10,12 +11,13 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route index element={<Champions/>}/>
+          <Route index element={<Navigate to="/aspects" />} />
           <Route path="champions" > 
             <Route index element={<Champions/>}/>
             <Route path=":id" element={<ChampionDetail/>}/>
           </Route>
           <Route path="aspects" element={<Aspects/>}/>
+          <Route path="modal" element={<ModalPopUpAspect/>}/>
           <Route path="*" elemetn={<NotFound/>}/>
         </Route>
       </Routes>

@@ -1,10 +1,13 @@
 import AspectCard from '../components/cards/aspectCard/AspectCard';
 import { GalleryStandard } from '../components/UI/GaleryStyles';
 import { useGetAspectsQuery } from '../services/lolApi';
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';
-// import {Default} from 'react-awesome-spinners';
+import {Default} from 'react-awesome-spinners';
+import { LIMIT_ASPECTS_PER_PAGE } from '../variableGlobales';
+import { Link } from 'react-router-dom';
+import ModalPopUpAspect from '../components/modalPopUp/ModalPopUpAspect';
 // import SearchAspect from '../components/search/searchaspect/SearchAspect'
 
 
@@ -14,20 +17,32 @@ const WrapperCard = styled.div`
 
 export default function Aspects() {
   const [searchChampion, setSearchChampion] = useState("");
-  const {data: aspects, error, isLoading} = useGetAspectsQuery({nameChampion: searchChampion});
+  const [currentPage, setCurrentPage] = useState(1);
+  const {data: aspects, error, isLoading} = useGetAspectsQuery({page: currentPage, nameChampion: searchChampion});
+  const [modalImage, setModalImage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  
+  function showModalImage(img){
+    setShowModal(true);
+    setModalImage(img);
+  }
 
   return (
     <WrapperCard>
       {/* <SearchAspect asignarSearchChampion={setSearchChampion} /> */}
       <GalleryStandard>
         {
-          // isLoading && <Default color="var(--color-primary)"/>
+          isLoading && <Default color="var(--color-primary)"/>
         }
         {
-          aspects?.data?.map( (aspect,idx) => <AspectCard key={idx} champion_id={aspect.champion_id} image={aspect.imgsrc} name={aspect.name} />)
+          aspects?.data?.map( (aspect,idx) => <div key={idx} onClick={ () => showModalImage(aspect.imgsrc) }><AspectCard champion_id={aspect.champion_id} image={aspect.imgsrc} name={aspect.name} /> </div> )
         }
       </GalleryStandard>
-      <Pagination />
+      {
+        (showModal) ? <ModalPopUpAspect modalImage={modalImage} setShowModal={setShowModal}/> : null
+      }
+      
+      <Pagination limit_per_page={LIMIT_ASPECTS_PER_PAGE} quantityElements={aspects?.quantity} setCurrentPage={setCurrentPage} currentPage={currentPage}  />
     </WrapperCard>
   )
 }

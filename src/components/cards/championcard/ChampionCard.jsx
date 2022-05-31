@@ -3,22 +3,24 @@ import { Link } from 'react-router-dom';
 import { ImageStandard, ImageWrapperRounded } from '../../UI/ImageStyles';
 
 export const CardWrapper = styled.div`
+    /* border: 1px solid blue; */
     background-color: var(--color-tertiary);
     border-radius: .7rem;
     padding: .625em;
-    width: max(100%, 40vh);
-    max-width: 420px;
-    height: auto;
+    width: clamp(110px, 34vw, 350px);
     text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
 
     .card_image--name{
+        /* border: 1px solid green; */
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: .2em;
-        font-size: clamp(1.35rem, 2vw, 1.5rem);
+        font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
         color: var(--text--primary-color);
         font-weight: 400;
+        text-transform: capitalize;
     }
 
     &:hover{
@@ -26,9 +28,9 @@ export const CardWrapper = styled.div`
     }
 `;
 
-export default function ChampionCard({image, name}) {
+export default function ChampionCard({id, image, name}) {
   return (
-      <Link to="/champions/1">
+      <Link to={`/champions/${id}`}>
         <CardWrapper> 
             <ImageWrapperRounded>
                 <ImageStandard src={image} alt="xataka" />
