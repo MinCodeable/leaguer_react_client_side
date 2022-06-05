@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
 import { AiFillGithub, AiFillLinkedin, AiOutlineArrowRight, AiFillMail } from "react-icons/ai";
 import { IoLocation } from "react-icons/io5";
-import FooterAccordion from "../../components/footeracordion/FooterAccordion";
-import { TextStandard } from "../../components/UI/TextStyles";
+import { TextStandard} from "../../components/UI/TextStyles";
+import FooterSection from "./FooterSection";
 
 const Wrapper = styled.footer`
   border-top: 2px solid var(--color-primary);
@@ -10,8 +10,9 @@ const Wrapper = styled.footer`
   height: auto;
   display: flex;
   flex-direction: column;
-  margin-top: auto;
+  margin-top: 4rem;
   width: 100%;
+
   .color-icon{
     color: var(--color-primary);
   }
@@ -20,6 +21,13 @@ const Wrapper = styled.footer`
 
 const WrapperRedes = styled.div`
   padding: .5rem 1.2em;
+  @media screen and (min-width: 1024px){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
+  }
 `;
 
 const Copiryght = styled.div`
@@ -36,39 +44,90 @@ const Copiryght = styled.div`
   }
 `;
 
+
+const RedSocialItems = styled.div`
+  margin-top: .8rem;
+  font-size: 2rem;
+  margin-left: 1rem;
+  display: flex;
+  gap: 1rem;
+  
+  .icon-redes{
+      border: 1px solid var(--color-primary);
+      padding: .1em;
+      border-radius: .1em;
+  }
+
+  @media screen and (min-width: 1024px){
+    margin-left: 0;
+    justify-content: space-between;
+    gap: 0;
+
+    .icon-redes{
+      border: 1px solid var(--color-primary);
+      padding: .1em;
+      border-radius: .1em;
+    }
+  }
+`;
+
+const RedSocialItemsEnlace = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: .8rem;
+  margin-left: 1rem;
+
+  @media screen and (min-width: 1024px){
+    margin-left: 0;
+  }
+`;
+
+const RedEnlace = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+`;
+
 export default function Footer() {
 
   return (
     <Wrapper>
       <WrapperRedes>
-        <FooterAccordion titleName="Redes Sociales">
-            <div>
-              <AiFillGithub className="icon-redes" />
-              <AiFillLinkedin className="icon-redes" />
-            </div>
-        </FooterAccordion>
+        
+        <FooterSection name={"Redes Sociales"} >
+          <RedSocialItems>
+            <AiFillGithub className="icon-redes" />
+            <AiFillLinkedin className="icon-redes" />
+          </RedSocialItems>
+        </FooterSection>
 
-        <FooterAccordion titleName="Enlaces Rapidos">
-            <div>
+        <FooterSection name={"Enlaces rapidos"}>
+          <RedSocialItemsEnlace>
+            <RedEnlace>
               <AiOutlineArrowRight className="color-icon" />
               <TextStandard > Campeones </TextStandard>
-            </div>
-            <div>
+            </RedEnlace>
+            <RedEnlace>
               <AiOutlineArrowRight className="color-icon"/>
               <TextStandard > Aspectos </TextStandard>
-            </div>
-        </FooterAccordion>
+            </RedEnlace>
+          </RedSocialItemsEnlace>
+        </FooterSection >
 
-        <FooterAccordion titleName="Informacion del Contacto">
-            <div>
+        <FooterSection name={"Informacion del contacto"}>
+          <RedSocialItemsEnlace>
+            <RedEnlace>
               <AiFillMail className="color-icon" />
               <TextStandard> mindyleonh@gmail.com </TextStandard>
-            </div>
-            <div>
+            </RedEnlace>
+            <RedEnlace>
               <IoLocation  className="color-icon"/>
               <TextStandard> Lima-Peru </TextStandard>
-            </div>
-        </FooterAccordion>
+            </RedEnlace>
+          </RedSocialItemsEnlace>            
+        </FooterSection >
+
       </WrapperRedes>
 
       <Copiryght>

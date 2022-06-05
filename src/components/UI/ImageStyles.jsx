@@ -12,9 +12,12 @@ export const ImageWrapperSmall = styled.div`
     width: 150px;
 `;
 
+export  const ImageWrapperSmallCarousel = styled(ImageWrapperSmall)`
+    width: clamp(3rem, 5rem + 8vw, 15rem);
+`;
+
 export const ImageWrapperRounded = styled(ImageWrapperStandard)`
     border-radius: .5rem;
-    /* border: 2px solid yellow; */
     display: flex;
     @media  ${devices.tablet} {
         border-radius: .7rem;

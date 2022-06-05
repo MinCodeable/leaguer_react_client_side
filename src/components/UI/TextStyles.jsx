@@ -6,6 +6,7 @@ export const TextTitle = styled.div`
     color: var(--color-primary);
     margin-top: .7em;
     cursor: pointer;
+    
 `;
 export const TextStandard = styled.div`
     font-size: .9rem;
