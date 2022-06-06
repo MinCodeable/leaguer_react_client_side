@@ -3,7 +3,7 @@ import { GalleryStandard } from '../components/UI/GaleryStyles';
 import { useGetChampionsQuery } from '../services/lolApi';
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import {Default} from 'react-awesome-spinners';
+// import {Default} from 'react-awesome-spinners';
 import Paginat from '../components/pagination/pagint';
 
 const Wrapper = styled.div`
@@ -24,7 +24,7 @@ export default function Champions() {
     <Wrapper>
       <GalleryStandard>
         {
-          isLoading && <Default color="var(--color-primary)"/>
+          // isLoading && <Default color="var(--color-primary)"/>
         }
         {
           champions?.data?.map( (champion) => <ChampionCard key={champion.id} id={champion.id} image={champion.main_imgsrc} name={champion.name} />)
