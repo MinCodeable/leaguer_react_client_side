@@ -12,6 +12,8 @@ const WrapperTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: var(--color-primary);
+  font-weight: 500;
 
   &::after{content: "+";}
   

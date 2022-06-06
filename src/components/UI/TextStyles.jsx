@@ -13,5 +13,4 @@ export const TextStandard = styled.div`
     font-weight: normal;
     color: var(--text--primary-color);
     padding: .4rem 0;
-    /* border-radius: 5px; */
 `;

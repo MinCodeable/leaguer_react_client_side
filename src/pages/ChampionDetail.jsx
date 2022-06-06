@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import { ImageStandard, ImageWrapperSmall, ImageWrapperSmallCarousel, ImageWrapperStandard } from '../components/UI/ImageStyles'
+import { ImageStandard, ImageWrapperSmallCarousel, ImageWrapperStandard } from '../components/UI/ImageStyles'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useGetChampionByIdQuery } from '../services/lolApi'
 import ReactPlayer from 'react-player'
 
@@ -35,7 +35,6 @@ const ContentImageAndNames = styled.div`
 `;
 
 const ContentImagesWrapper = styled.div`
-  /* border: 3px solid red; */
   margin-top: 20px;
   display: flex;
   align-items: center;
@@ -47,7 +46,7 @@ const ContentImagesWrapper = styled.div`
     display: none;
   }
 
-  @media screen and (min-width: 1024px){
+  @media screen and (min-width: 768px){
     width: 100%;
     margin: 0 auto;
     overflow-y: hidden;
@@ -127,7 +126,6 @@ const Hr = styled.hr`
 `;
 
 const DetailDescrip = styled.div`
-  /* border: 2px solid green; */
   margin-top: 20px;
   text-align: justify;
   font-size: .85rem;
@@ -144,7 +142,6 @@ const WrapperImagesSlide = styled.div`
 `;
 
 const ImageWrapperSmalls = styled(ImageWrapperSmallCarousel)`
-  /* border: 2px solid green; */
   box-shadow: 0px 0px 15px 0px rgba(186,186,186,0.35);
 `;
 
@@ -277,17 +274,15 @@ export default function ChampionDetail() {
   const idParams = useParams(null);
   const [keyword, setKeyword] = useState({});
   const [aspectImage, setAspectImage] = useState("");
-  const carouselRef = useState(null);
+  const carouselRef = useRef(null);
   const {data: champion, error, isLoading} = useGetChampionByIdQuery(idParams.id);
 
   function handleClickLeft(e){
-    e.preventDefault();
-    console.log("left", carouselRef.current.offsetWidth)
+    // console.log("left", carouselRef.current.offsetWidth)
     carouselRef.current.scrollLeft += carouselRef.current.offsetWidth
   }
   function handleClickRight(e){
-    e.preventDefault();
-    console.log("left", carouselRef.current.offsetWidth)
+    // console.log("left", carouselRef.current.offsetWidth)
     carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth
   }
 
@@ -330,7 +325,7 @@ export default function ChampionDetail() {
         </ContentDetailNames>
       </ContentCabecera>
 
-      <ContentImagesWrapper className='carousel' ref={carouselRef}>
+      <ContentImagesWrapper ref={carouselRef}>
         <Arrows onClick={handleClickLeft} > &#60;      </Arrows>
           <WrapperImagesSlide>
             {

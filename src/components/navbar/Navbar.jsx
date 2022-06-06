@@ -1,14 +1,13 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { BiSearchAlt2 } from "react-icons/bi";
 import { BsMoon } from "react-icons/bs";
 import { IconIoIosCloseCircleOutline } from "../UI/IconCloseStyle";
 import {NavLink} from 'react-router-dom'
 import {devices} from '../../layout/responsive/DevicesBreakPoints'
+import { BsFillBrightnessHighFill } from "react-icons/bs";
+import { useState } from "react";
 
 const WrapperNav = styled.div`
-  /* border: 2px solid blue; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -82,7 +81,6 @@ const NavLinksWeapper = styled.div`
   @media  ${devices.tablet} {
     flex-direction: row;
     gap: 25px;
-    /* border: 2px solid green; */
   }
 `;
 
@@ -92,28 +90,20 @@ const NavbarLinks = styled(NavLink)`
   padding-left: 1em;
   color: var(--text--primary-color);
   text-decoration: none;
-  /* color: red; */
 
   &:hover{
     background-color: var(--color-primary);
     color: var(--color-secondary);
-    /* color: red; */
 
   }
   &.active{
-    /* color: var(--color-secondary); */
     color: var(--text--primary-color);
     background-color: var(--color-primary);
     font-weight: 500;
   }
 
   @media  ${devices.tablet} {
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* border: 2px solid red; */
     padding: .5em 1em;
-    /* row-gap: 15px; */
-    /* gap: 20px; */
   }
 
 `;
@@ -138,21 +128,24 @@ const IconAiOutlineMenu = styled(AiOutlineMenu)`
   }
 `;
 
-const IconBiSearchAlt2 = styled(BiSearchAlt2)`
-  &:hover{
-    color: var(--color-primary);
+const SpanDarkLight = styled.span`
+  &.active{
+    display: none;
   }
 `;
 
 export default function Navbar() {
   const [active, setActive] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(true);
 
-  function handleTheme(){
+  function handleTheme(){  
     const bodyClass = document.body.classList;
     if(bodyClass.contains("light")){
       bodyClass.replace("light", "dark")
+      setDarkTheme(true)
     }else{
       bodyClass.add("light")
+      setDarkTheme(false)
     }
   }
 
@@ -160,12 +153,11 @@ export default function Navbar() {
     <WrapperNav>
       <NavRowIcons>
         <IconAiOutlineMenu onClick={() => setActive(true)}/>
-        <IconBiSearchAlt2 />
       </NavRowIcons>
       <ShadowDiv className={ active ? "active" : ""} id="shadow">
         <NavbarItems className={ active ? "active" : ""}>
           <IconsWrapper>
-            <span onClick={handleTheme}> <BsMoon/> </span>
+            <SpanDarkLight onClick={handleTheme}> { darkTheme ? <BsMoon/> : <BsFillBrightnessHighFill/>} </SpanDarkLight>
             <span onClick={() => setActive(false)}> <IconIoIosCloseCircleOutline/>  </span>
           </IconsWrapper>
           <NavLinksWeapper>

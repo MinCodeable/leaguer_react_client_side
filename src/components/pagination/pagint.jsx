@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { BsChevronLeft } from "react-icons/bs";
 import { BsChevronRight } from "react-icons/bs";
 import { MAX_PAGES_PER_SEGMENT } from '../../variableGlobales';
 
 const WrapperPagination = styled.div`
-    // border: 3px solid blue;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +28,6 @@ const NumberPagination = styled.div`
         background-color: var(--color-primary);
     }
     &.active{
-        /* background-color: var(--golden); */
         background-color: var(--color-primary);
     }
 `;

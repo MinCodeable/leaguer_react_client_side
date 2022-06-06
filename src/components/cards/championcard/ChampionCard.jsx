@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ImageStandard, ImageWrapperRounded } from '../../UI/ImageStyles';
 
 export const CardWrapper = styled.div`
-    /* border: 1px solid blue; */
     background-color: var(--color-tertiary);
     border-radius: .7rem;
     padding: .625em;
@@ -13,7 +12,6 @@ export const CardWrapper = styled.div`
     flex-direction: column;
 
     .card_image--name{
-        /* border: 1px solid green; */
         display: flex;
         align-items: center;
         justify-content: center;

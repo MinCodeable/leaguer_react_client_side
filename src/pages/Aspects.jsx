@@ -1,14 +1,12 @@
 import AspectCard from '../components/cards/aspectCard/AspectCard';
 import { GalleryStandard } from '../components/UI/GaleryStyles';
 import { useGetAspectsQuery } from '../services/lolApi';
-import {useRef, useState} from 'react'
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';
 import {Default} from 'react-awesome-spinners';
 import { LIMIT_ASPECTS_PER_PAGE } from '../variableGlobales';
-import { Link } from 'react-router-dom';
 import ModalPopUpAspect from '../components/modalPopUp/ModalPopUpAspect';
-// import SearchAspect from '../components/search/searchaspect/SearchAspect'
+import { useState } from 'react';
 
 
 const WrapperCard = styled.div`
@@ -29,7 +27,6 @@ export default function Aspects() {
 
   return (
     <WrapperCard>
-      {/* <SearchAspect asignarSearchChampion={setSearchChampion} /> */}
       <GalleryStandard>
         {
           isLoading && <Default color="var(--color-primary)"/>

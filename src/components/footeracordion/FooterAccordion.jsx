@@ -12,14 +12,12 @@ const WrapperAccordion = styled.div`
 `;
 
 const WrapperTitle = styled.div`
-  /* border: 2px solid red; */
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
 const WrapperText = styled.div`
-  /* border: 2px solid yellow; */
   padding: 0em 1em;
   display: none;
   flex-direction: column;
@@ -27,7 +25,6 @@ const WrapperText = styled.div`
   div{
     display: flex;
     gap: .5rem;
-    /* align-items: center; */
   }
  
   .icon-redes{

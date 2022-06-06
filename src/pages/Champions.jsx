@@ -3,9 +3,7 @@ import { GalleryStandard } from '../components/UI/GaleryStyles';
 import { useGetChampionsQuery } from '../services/lolApi';
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import Pagination from '../components/pagination/Pagination';
 import {Default} from 'react-awesome-spinners';
-import { LIMIT_CHAMPIONS_PER_PAGE } from '../variableGlobales';
 import Paginat from '../components/pagination/pagint';
 
 const Wrapper = styled.div`
@@ -24,7 +22,6 @@ export default function Champions() {
 
   return (
     <Wrapper>
-      {/* <SearchChampion setSortChampion={setSortChampion} setSearchTypeText={setSearchTypeText} setTypeChamp={setTypeChamp} setDifficultChamp={setDifficultChamp}/> */}
       <GalleryStandard>
         {
           isLoading && <Default color="var(--color-primary)"/>
@@ -33,7 +30,6 @@ export default function Champions() {
           champions?.data?.map( (champion) => <ChampionCard key={champion.id} id={champion.id} image={champion.main_imgsrc} name={champion.name} />)
         }
       </GalleryStandard>
-      {/* <Pagination limit_per_page={LIMIT_CHAMPIONS_PER_PAGE} quantityElements={champions?.quantity} setCurrentPage={setCurrentPage} currentPage={currentPage}/> */}
       <Paginat currentPage = {currentPage} setCurrentPage={setCurrentPage}/>
     </Wrapper>
   )

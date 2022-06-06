@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import { AiFillGithub, AiFillLinkedin, AiOutlineArrowRight, AiFillMail } from "react-icons/ai";
 import { IoLocation } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import { TextStandard} from "../../components/UI/TextStyles";
 import FooterSection from "./FooterSection";
 
@@ -12,6 +13,7 @@ const Wrapper = styled.footer`
   flex-direction: column;
   margin-top: 4rem;
   width: 100%;
+  background-color: var(--color-secondary-dark);
 
   .color-icon{
     color: var(--color-primary);
@@ -33,10 +35,12 @@ const WrapperRedes = styled.div`
 const Copiryght = styled.div`
 
   font-size: .8rem;
+  color: var(--text--primary-color);
   text-align: center;
   background-color: var(--color-tertiary);
   padding: 1.2em;
   margin-top: 1.2em;
+
 
   span{
     color: var(--color-primary);
@@ -89,6 +93,13 @@ const RedEnlace = styled.div`
   gap: 1rem;
 `;
 
+const A = styled.a`
+  color: var(--text--primary-color);
+  &:hover{
+    color: #cdc17b77;
+  }
+`;
+
 export default function Footer() {
 
   return (
@@ -97,8 +108,8 @@ export default function Footer() {
         
         <FooterSection name={"Redes Sociales"} >
           <RedSocialItems>
-            <AiFillGithub className="icon-redes" />
-            <AiFillLinkedin className="icon-redes" />
+            <A href = "https://github.com/MinCodeable" target="_blank">  <AiFillGithub className="icon-redes" />  </A>
+            <A href = "https://www.linkedin.com/in/mindy-leon-9259ba1b2/" target="_blank">  <AiFillLinkedin className="icon-redes" /> </A>
           </RedSocialItems>
         </FooterSection>
 
@@ -106,11 +117,11 @@ export default function Footer() {
           <RedSocialItemsEnlace>
             <RedEnlace>
               <AiOutlineArrowRight className="color-icon" />
-              <TextStandard > Campeones </TextStandard>
+              <Link to="/champions">  <TextStandard > Campeones </TextStandard> </Link>
             </RedEnlace>
             <RedEnlace>
               <AiOutlineArrowRight className="color-icon"/>
-              <TextStandard > Aspectos </TextStandard>
+              <Link to = "/aspects">  <TextStandard > Aspectos </TextStandard>  </Link>
             </RedEnlace>
           </RedSocialItemsEnlace>
         </FooterSection >
