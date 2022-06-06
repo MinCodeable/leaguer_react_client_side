@@ -10,7 +10,8 @@ const AspectWrapper = styled.div`
 
     .aspect-name--champion{
         position: absolute;
-        color: var(--text--primary-color);
+        color: var(--color-primary);
+        /* color: red; */
         background-color: var(--color--hide);
         width: 100%;
         height: 100%;

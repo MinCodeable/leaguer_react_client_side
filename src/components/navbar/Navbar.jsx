@@ -75,12 +75,25 @@ const IconsWrapper = styled.div`
 `;
 
 const NavLinksWeapper = styled.div`
+  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
-
+  
+  
   @media  ${devices.tablet} {
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 25px;
+  }
+`;
+
+const NameLinksNavBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media  ${devices.tablet} {
+    flex-direction: row;
+
   }
 `;
 
@@ -126,12 +139,7 @@ const IconAiOutlineMenu = styled(AiOutlineMenu)`
   @media  ${devices.tablet} {
     display: none;
   }
-`;
 
-const SpanDarkLight = styled.span`
-  &.active{
-    display: none;
-  }
 `;
 
 export default function Navbar() {
@@ -157,12 +165,20 @@ export default function Navbar() {
       <ShadowDiv className={ active ? "active" : ""} id="shadow">
         <NavbarItems className={ active ? "active" : ""}>
           <IconsWrapper>
-            <SpanDarkLight onClick={handleTheme}> { darkTheme ? <BsMoon/> : <BsFillBrightnessHighFill/>} </SpanDarkLight>
+            <span onClick={handleTheme}> { darkTheme ? <BsMoon/> : <BsFillBrightnessHighFill/>} </span>
             <span onClick={() => setActive(false)}> <IconIoIosCloseCircleOutline/>  </span>
           </IconsWrapper>
           <NavLinksWeapper>
-            <NavbarLinks end to='champions' className={ ({isActive}) => isActive ? 'active' : '' } >Campeones</NavbarLinks>
-            <NavbarLinks end to='aspects' className={ ({isActive}) => isActive ? 'active' : '' } >Aspects</NavbarLinks>
+            <NameLinksNavBar>
+              <NavbarLinks end to='champions' className={ ({isActive}) => isActive ? 'active' : '' } >Campeones</NavbarLinks>
+              <NavbarLinks end to='aspects' className={ ({isActive}) => isActive ? 'active' : '' } >Aspects</NavbarLinks>
+            </NameLinksNavBar>
+            <div>
+
+              {
+                active === false && <span onClick={handleTheme}> { darkTheme ? <BsMoon/> : <BsFillBrightnessHighFill/>} </span>
+              }
+            </div>
           </NavLinksWeapper>
         </NavbarItems>
       </ShadowDiv>

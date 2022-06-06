@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ImageStandard, ImageWrapperRounded } from '../../UI/ImageStyles';
 
 export const CardWrapper = styled.div`
-    background-color: var(--color-tertiary);
+
     border-radius: .7rem;
     padding: .625em;
     width: clamp(110px, 34vw, 350px);
@@ -22,7 +22,7 @@ export const CardWrapper = styled.div`
     }
 
     &:hover{
-        border: 3px solid var(--color-primary);
+        border: 1px solid var(--color-primary);
     }
 `;
 

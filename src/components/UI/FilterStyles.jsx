@@ -17,6 +17,7 @@ export const WrapperSearch = styled.div`
 
 export const ContentWrapper = styled.div`
     background-color: var(--color-tertiary);
+    background-color: red;
     color: white;
     width: 70%;
     height: 100%;

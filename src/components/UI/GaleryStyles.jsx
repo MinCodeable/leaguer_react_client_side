@@ -6,6 +6,5 @@ export const GalleryStandard = styled.div`
   align-items: center;
   justify-content: space-evenly;
   gap:1rem;
-  
   width: max(100%, 10vh);
 `;

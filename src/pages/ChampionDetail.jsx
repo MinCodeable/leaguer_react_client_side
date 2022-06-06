@@ -105,6 +105,9 @@ const DetailRol = styled.div`
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+  color: var(--color-primary);
+  font-weight: 500;
+
 `;
 
 const RolTypeDetail = styled.div`
@@ -115,7 +118,7 @@ const RolTypeDetail = styled.div`
   line-height: 1.2rem;
 
   .type{
-    color: var(--color-primary);
+    color: var(--text--primary-color);
   }
 `;
 
@@ -129,6 +132,8 @@ const DetailDescrip = styled.div`
   margin-top: 20px;
   text-align: justify;
   font-size: .85rem;
+  color: var(--text--primary-color);
+
 `;
 
 const WrapperImagesSlide = styled.div`
@@ -236,6 +241,9 @@ const HabilidadDescriptionKeyword = styled.div`
   font-size: .85rem;
   text-align: justify;
   width: clamp(18rem, 10rem + 35vw, 45rem);
+  div{
+    color: var(--text--primary-color);
+  }
 `;
 
 const HabilidadGroupSpan = styled.div`
@@ -246,7 +254,7 @@ const HabilidadGroupSpan = styled.div`
 const SpanKeyword = styled.span`
   color: var(--color-primary);
   line-height: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 const Arrows = styled.button`
@@ -278,11 +286,9 @@ export default function ChampionDetail() {
   const {data: champion, error, isLoading} = useGetChampionByIdQuery(idParams.id);
 
   function handleClickLeft(e){
-    // console.log("left", carouselRef.current.offsetWidth)
     carouselRef.current.scrollLeft += carouselRef.current.offsetWidth
   }
   function handleClickRight(e){
-    // console.log("left", carouselRef.current.offsetWidth)
     carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth
   }
 
