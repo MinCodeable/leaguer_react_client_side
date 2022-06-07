@@ -3,7 +3,7 @@ import { GalleryStandard } from '../components/UI/GaleryStyles';
 import { useGetAspectsQuery } from '../services/lolApi';
 import styled from '@emotion/styled';
 import Pagination from '../components/pagination/Pagination';
-// import {Default} from 'react-awesome-spinners';
+import {Default} from 'react-awesome-spinners';
 import { LIMIT_ASPECTS_PER_PAGE } from '../variableGlobales';
 import ModalPopUpAspect from '../components/modalPopUp/ModalPopUpAspect';
 import { useState } from 'react';
@@ -29,7 +29,7 @@ export default function Aspects() {
     <WrapperCard>
       <GalleryStandard>
         {
-          // isLoading && <Default color="var(--color-primary)"/>
+          isLoading && <Default color="var(--color-primary)"/>
         }
         {
           aspects?.data?.map( (aspect,idx) => <div key={idx} onClick={ () => showModalImage(aspect.imgsrc) }><AspectCard champion_id={aspect.champion_id} image={aspect.imgsrc} name={aspect.name} /> </div> )
