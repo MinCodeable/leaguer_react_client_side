@@ -20,6 +20,10 @@ export default function Champions() {
 
   const {data: champions, error, isLoading} = useGetChampionsQuery({page: currentPage, order: sortChampion, textSearch: searchTypeText, type_champ: typeChamp, difficulty: difficultChamp });
 
+  function updateCurrentPage(pageNumber){
+    setCurrentPage(pageNumber);
+  }
+
   return (
     <Wrapper>
       <GalleryStandard>
@@ -30,7 +34,7 @@ export default function Champions() {
           champions?.data?.map( (champion) => <ChampionCard key={champion.id} id={champion.id} image={champion.main_imgsrc} name={champion.name} />)
         }
       </GalleryStandard>
-      <Pagination currentPage = {currentPage} setCurrentPage={setCurrentPage} quantityElements={30} limit_per_page={5} />
+      <Pagination currentPage = {currentPage} updateCurrentPage={updateCurrentPage} quantityElements={30} limit_per_page={5} />
     </Wrapper>
   )
 }

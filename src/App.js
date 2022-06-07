@@ -18,7 +18,7 @@ function App() {
           </Route>
           <Route path="aspects" element={<Aspects/>}/>
           <Route path="modal" element={<ModalPopUpAspect/>}/>
-          <Route path="*" elemetn={<NotFound/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Route>
       </Routes>
     </Router>
