@@ -19,14 +19,17 @@ export default function Champions() {
   const [currentPage, setCurrentPage] = useState(1);
   const [startLoading, setStartLoading] = useState(skipToken)
 
+  console.log("loading champions")
 
   const {data: champions, error, isLoading} = useGetChampionsQuery({page: currentPage, order: sortChampion, textSearch: searchTypeText, type_champ: typeChamp, difficulty: difficultChamp });
 
   function updateCurrentPage(pageNumber){
+    console.log("update current page")
     setCurrentPage(pageNumber);
   }
 
   useEffect(() => {
+    console.log("useeffect current page")
     setStartLoading(true);
   },[currentPage])
 
