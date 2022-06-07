@@ -40,6 +40,7 @@ export default function Aspects() {
       }
       
       <Pagination limit_per_page={LIMIT_ASPECTS_PER_PAGE} quantityElements={aspects?.quantity} setCurrentPage={setCurrentPage} currentPage={currentPage}  />
+
     </WrapperCard>
   )
 }

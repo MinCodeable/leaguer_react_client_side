@@ -25,9 +25,12 @@ const NumberPagination = styled.div`
     padding: .2em .5em;
     cursor: pointer;
     &:hover{
-        background-color: var(--color-primary);
+        background-color: var(--color-tertiary);
+        color: var(--color-secondary);
+
     }
     &.active{
+        color: var(--color-secondary);
         background-color: var(--color-primary);
     }
 `;

@@ -4,7 +4,7 @@ import { useGetChampionsQuery } from '../services/lolApi';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import {Default} from 'react-awesome-spinners';
-import Paginat from '../components/pagination/pagint';
+import Pagination from '../components/pagination/Pagination';
 
 const Wrapper = styled.div`
   padding: 1.1rem;
@@ -30,7 +30,7 @@ export default function Champions() {
           champions?.data?.map( (champion) => <ChampionCard key={champion.id} id={champion.id} image={champion.main_imgsrc} name={champion.name} />)
         }
       </GalleryStandard>
-      <Paginat currentPage = {currentPage} setCurrentPage={setCurrentPage}/>
+      <Pagination currentPage = {currentPage} setCurrentPage={setCurrentPage} quantityElements={30} limit_per_page={5} />
     </Wrapper>
   )
 }
