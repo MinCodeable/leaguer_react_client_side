@@ -43,8 +43,8 @@ const IconBsChevronRight = styled(BsChevronRight)`
     cursor: pointer;
 `;
 
-
-export default function Pagination({limit_per_page=null, quantityElements=null, updateCurrentPage, currentPage}) {
+export default function Pagination({limit_per_page=null, quantityElements=null, setCurrentPage, currentPage}) {
+    
     const [numPages, setNumPages] = useState(0);
     const [rangoPagination, setRangoPagination] = useState(() => ({start: 1, end: MAX_PAGES_PER_SEGMENT}));
     const groupPaginationRef = useRef(null);
@@ -55,10 +55,11 @@ export default function Pagination({limit_per_page=null, quantityElements=null, 
 
     const createNumeration = (function(){
         let groupNumbersPagination = [];
+
         for(let cont = rangoPagination.start; cont <= rangoPagination.end && cont <= numPages ; cont++){
             groupNumbersPagination.push(
                 <NumberPagination 
-                    onClick={(event) => updateCurrentPage(parseInt(event.target.textContent))}  
+                    onClick={(event) => setCurrentPage(parseInt(event.target.textContent))}  
                     className={currentPage === cont ? "active" : null}
                 > 
                     {cont} 
@@ -71,21 +72,22 @@ export default function Pagination({limit_per_page=null, quantityElements=null, 
 
     function moveRight(){
         setRangoPagination({start: rangoPagination.start + MAX_PAGES_PER_SEGMENT, end: rangoPagination.end + MAX_PAGES_PER_SEGMENT})
-        updateCurrentPage(rangoPagination.end + 1);
+        setCurrentPage(rangoPagination.end + 1);
     }
     
     function moveLeft(){
         setRangoPagination({start: rangoPagination.start - MAX_PAGES_PER_SEGMENT, end: rangoPagination.end - MAX_PAGES_PER_SEGMENT})
-        updateCurrentPage(rangoPagination.start - 1)
+        setCurrentPage(rangoPagination.start - 1)
     }
 
-  return (
-      <WrapperPagination>
-            <GroupPagination ref={groupPaginationRef}>
-                { rangoPagination.start > 1 &&  <IconBsChevronLeft onClick={moveLeft}/> }
-                { createNumeration.map( (pageNumeration, idx) => <div key={idx}> {pageNumeration} </div> ) }
-                { rangoPagination.end < numPages && <IconBsChevronRight onClick={moveRight}/> }
-            </GroupPagination>
-      </WrapperPagination>
-  )
+    return (
+        <WrapperPagination>
+                <GroupPagination ref={groupPaginationRef}>
+                    { rangoPagination.start > 1 &&  <IconBsChevronLeft onClick={moveLeft}/> }
+                    { createNumeration.map( (pageNumeration, idx) => <div key={idx}> {pageNumeration} </div> ) }
+                    { rangoPagination.end < numPages && <IconBsChevronRight onClick={moveRight}/> }
+                </GroupPagination>
+        </WrapperPagination>
+    )
+
 }

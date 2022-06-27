@@ -77,6 +77,7 @@ const IconsWrapper = styled.div`
 const NavLinksWeapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
   
   @media  ${devices.tablet} {
     flex-direction: row;
@@ -87,7 +88,6 @@ const NavLinksWeapper = styled.div`
 `;
 
 const NameLinksNavBar = styled.div`
-  /* border: 2px solid blue; */
   display: flex;
   flex-direction: column;
   @media  ${devices.tablet} {
@@ -97,26 +97,20 @@ const NameLinksNavBar = styled.div`
 `;
 
 const NavbarLinks = styled(NavLink)`
-  /* border: 2px solid red; */
   border-bottom: 1px solid var(--color-primary);
   padding: 1em 0;
   padding-left: 1em;
   color: var(--text--primary-color);
-  /* color: var(--color-secondary); */
   text-decoration: none;
 
   &:hover{
-    /* color: var(--text--primary-color); */
-    /* background-color: var(--color-primary); */
     background-color: var(--color-tertiary);  
     color: var(--text--primary-color);
   }
 
   &.active{
-    /* color: var(--text--primary-color); */
     background-color: var(--color-primary);
     color: var(--color-secondary);
-    /* background-color: var(--text--primary-color); */
 
     font-weight: 500;
   }

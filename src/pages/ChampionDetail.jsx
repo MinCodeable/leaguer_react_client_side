@@ -1,9 +1,10 @@
 import styled from '@emotion/styled'
-import { ImageStandard, ImageWrapperSmallCarousel, ImageWrapperStandard } from '../components/UI/ImageStyles'
+import { ImageStandard, ImageWrapperStandard } from '../components/UI/ImageStyles'
 import { useParams } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useGetChampionByIdQuery } from '../services/lolApi'
 import ReactPlayer from 'react-player'
+import ContentImagesSlider from '../components/imagesSlider/ContentImagesSlider'
 
 const WrapperDetail = styled.div`
   color: white;
@@ -32,39 +33,6 @@ const ContentImageAndNames = styled.div`
     flex-grow: 1;
     width: 60%;
   }
-`;
-
-const ContentImagesWrapper = styled.div`
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  overflow: scroll;
-  
-  &.active{
-    display: none;
-  }
-
-  @media screen and (min-width: 768px){
-    width: 100%;
-    margin: 0 auto;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    
-    &.active{
-      display: flex;
-    }
-
-    &.carousel{
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      &::-webkit-scrollbar{
-        display: none;
-      }
-    }
-  }
-
 `;
 
 const NamesChampion = styled.div`
@@ -134,20 +102,6 @@ const DetailDescrip = styled.div`
   font-size: .85rem;
   color: var(--text--primary-color);
 
-`;
-
-const WrapperImagesSlide = styled.div`
-
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  margin: 2rem auto;
-  cursor: pointer;
-
-`;
-
-const ImageWrapperSmalls = styled(ImageWrapperSmallCarousel)`
-  box-shadow: 0px 0px 15px 0px rgba(186,186,186,0.35);
 `;
 
 const WrapperHabilidades = styled.div`
@@ -257,49 +211,25 @@ const SpanKeyword = styled.span`
   font-weight: 600;
 `;
 
-const Arrows = styled.button`
-  display: none;
-
-  @media screen and (min-width: 1024px){
-    display: flex;
-    border: 1px solid var(--color-primary);
-    border-radius: 50%;
-    padding: .2rem .4rem;
-    color: var(--color-primary);
-    background: none;
-    cursor: pointer;
-    
-    &:hover{
-      background-color: #ffffff3c;
-    }
-
-  }
-  
-`;
-
 export default function ChampionDetail() {
 
   const idParams = useParams(null);
   const [keyword, setKeyword] = useState({});
   const [aspectImage, setAspectImage] = useState("");
-  const carouselRef = useRef(null);
   const {data: champion, error, isLoading} = useGetChampionByIdQuery(idParams.id);
-
-  function handleClickLeft(e){
-    carouselRef.current.scrollLeft += carouselRef.current.offsetWidth
-  }
-  function handleClickRight(e){
-    carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth
-  }
-
 
   useEffect(() =>{
     setKeyword(champion?.datos?.abilities[0]);
     setAspectImage(champion?.datos?.main_imgsrc);
   },[champion])
+ 
+  function setMainImage(img){
+    setAspectImage(img)
+  }
 
   return (
     <WrapperDetail>
+
       <ContentCabecera>
         <ContentImageAndNames>
           <ImageWrapperStandard>
@@ -331,19 +261,12 @@ export default function ChampionDetail() {
         </ContentDetailNames>
       </ContentCabecera>
 
-      <ContentImagesWrapper ref={carouselRef}>
-        <Arrows onClick={handleClickLeft} > &#60;      </Arrows>
-          <WrapperImagesSlide>
-            {
-              champion?.datos?.aspects.map( (aspect,idx) => <ImageWrapperSmalls key={idx}> <ImageStandard onClick={ () => setAspectImage(aspect.imgsrc)} src={aspect.imgsrc} alt={aspect.name} /> </ImageWrapperSmalls>)
-            }
-          </WrapperImagesSlide>
-        <Arrows onClick={handleClickRight}> &#62;      </Arrows>
-      </ContentImagesWrapper>
+      <ContentImagesSlider champion={champion} setMainImage={setMainImage} />
 
       <WrapperHabilidades>
 
         <TitleHabilidad>HABILIDADES</TitleHabilidad>
+
         <ContentImageDetails>
           <HabilidadesImages>
             {
@@ -370,8 +293,8 @@ export default function ChampionDetail() {
 
         </ContentImageDetails>
 
-
       </WrapperHabilidades>
+
     </WrapperDetail>
   )
 }

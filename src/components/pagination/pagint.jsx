@@ -21,7 +21,6 @@ const GroupPagination = styled(WrapperPagination)`
 
 const NumberPagination = styled.div`
     border: 1px solid var(--color-primary);
-    /* border: 2px solid red; */
     font-size: clamp(1rem, 2vw, 1.25rem);
     padding: .2em .5em;
     cursor: pointer;
