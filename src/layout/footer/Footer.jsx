@@ -142,7 +142,7 @@ export default function Footer() {
       </WrapperRedes>
 
       <Copiryght>
-        Realizado por <span> Mindy Leon </span> | Todos los derechos reservados.
+        Realizado por <span> Mindy Leon </span>.
       </Copiryght>
     </Wrapper>
   )
