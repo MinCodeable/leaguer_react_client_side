@@ -1,6 +1,6 @@
 # README
 
-*  Para el diseño de la aplicación fue realizado en:
+*  La aplicación esta desarrollada con:
  
  - JS
  - HTML
