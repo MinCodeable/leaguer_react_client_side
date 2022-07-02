@@ -92,7 +92,6 @@ const NameLinksNavBar = styled.div`
   flex-direction: column;
   @media  ${devices.tablet} {
     flex-direction: row;
-
   }
 `;
 

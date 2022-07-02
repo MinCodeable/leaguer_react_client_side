@@ -6,7 +6,7 @@ export const CardWrapper = styled.div`
 
     border-radius: .7rem;
     padding: .625em;
-    width: clamp(110px, 34vw, 350px);
+    width: clamp(110px, 34vw, 400px);
     text-transform: capitalize;
     display: flex;
     flex-direction: column;

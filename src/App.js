@@ -17,7 +17,6 @@ function App() {
             <Route path=":id" element={<ChampionDetail/>}/>
           </Route>
           <Route path="aspects" element={<Aspects/>}/>
-          <Route path="modal" element={<ModalPopUpAspect/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Route>
       </Routes>

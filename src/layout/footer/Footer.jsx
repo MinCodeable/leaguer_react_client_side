@@ -11,7 +11,7 @@ const Wrapper = styled.footer`
   height: auto;
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
+  margin-top: auto;
   width: 100%;
   background-color: var(--color-secondary-dark);
 
