@@ -6,7 +6,8 @@
  - HTML
  - CSS (Styles / Emotion)
  - REACT
-
+ - Redux Toolkit
+ 
 ## Solución del problema
 
   * Estilos.
