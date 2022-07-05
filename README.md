@@ -62,7 +62,7 @@
 
   <br/>
 
-  | Página de Campeones | Página de menú | Página de Detalle de Campeón |
+  | Página de Campeones | Menú | Página de Detalle de Campeón |
   | ------------- | ------------- | ------------- |
   | <img width="250" src="https://user-images.githubusercontent.com/85201763/175987126-72102eca-5225-4145-8ee2-b7424a02ebde.png">  | <img width="250" src="https://user-images.githubusercontent.com/85201763/175990138-cb9ea122-3242-4fd0-b17e-cf0e5048e9d5.png">  | <img width="250" src="https://user-images.githubusercontent.com/85201763/175989790-46c52020-cc1a-4f99-a5ef-a08695aedf7c.png"> |
 
