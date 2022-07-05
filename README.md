@@ -62,7 +62,7 @@
 
   <br/>
 
-  | Primera vista | Segunda vista | Tercera vista |
+  | Página de Campeones | Página de menú | Página de Detalle de Campeón |
   | ------------- | ------------- | ------------- |
   | <img width="250" src="https://user-images.githubusercontent.com/85201763/175987126-72102eca-5225-4145-8ee2-b7424a02ebde.png">  | <img width="250" src="https://user-images.githubusercontent.com/85201763/175990138-cb9ea122-3242-4fd0-b17e-cf0e5048e9d5.png">  | <img width="250" src="https://user-images.githubusercontent.com/85201763/175989790-46c52020-cc1a-4f99-a5ef-a08695aedf7c.png"> |
 
@@ -72,7 +72,7 @@
 
   <br/>
 
-  | Primera vista | Segunda vista |
+  | Página de Campeón | Página de Detalle de Campeón |
   | ------------- | ------------- |
   | <img width="450" src="https://user-images.githubusercontent.com/85201763/175990636-b0b1bffa-605f-46d4-aeb3-d9ad108d0dfc.png"> | <img width="450" src="https://user-images.githubusercontent.com/85201763/175991116-03f59a17-7c80-400a-9846-936440bf22bd.png"> |
 
@@ -82,7 +82,7 @@
 
   <br/>
 
-  | Primera vista | Segunda vista |
+  | Página de Campeón | Página de Aspectos |
   | ------------- | ------------- |
   | <img width="650" src="https://user-images.githubusercontent.com/85201763/175993387-a609b673-d321-4494-a9da-00707e3bb6d9.png"> | <img width="650" src="https://user-images.githubusercontent.com/85201763/175993545-39142784-7d32-4661-8f84-bed46c67586a.png"> |
 
