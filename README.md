@@ -14,11 +14,11 @@
 
   * Conexión con la API creada.
 
-  * Desarrollo de la ventana de champions y aspectos.
+  * Desarrollo de las páginas de Champions y Aspectos.
   
   * Desarrollo de Modo Nocturno y Modo Día.
   
-  * Desarrollo del Footer 
+  * Desarrollo del Footer.
   
   * Responsive.
   
@@ -92,4 +92,4 @@
 
     Para acceder a la aplicacion:
 
-    https://league-react.netlify.app/champions
+    https://league-react.netlify.app/
